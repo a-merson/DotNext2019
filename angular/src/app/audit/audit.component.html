@@ -1,0 +1,68 @@
+<div class="row clearfix" [@routerTransition]>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card main-content">
+            <div class="header">
+                <h2>{{ "AuditRecords" | localize }}</h2>
+                <ul class="header-dropdown m-r--5">
+                    <li>
+                        <button mat-icon-button [matMenuTriggerFor]="headerMenu" class="header-dropdown-mat-icon-button">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #headerMenu="matMenu">
+                            <button mat-menu-item (click)="refresh()">
+                                <mat-icon>refresh</mat-icon>
+                                <span>{{ "Refresh" | localize }}</span>
+                            </button>
+                        </mat-menu>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive">
+
+                <table class="table table-hover table-striped" [busy]="isTableLoading">
+                    <thead>
+                        <tr>
+                            <th>{{ "TenantId" | localize }}</th>
+                            <th>{{ "UserId" | localize }}</th>
+                            <th>{{ "ServiceName" | localize }}</th>
+                            <th>{{ "MethodName" | localize }}</th>
+                            <th>{{ "ExecutionTime" | localize }}</th>
+                            <th>{{ "ExecutionDuration" | localize }}</th>
+                            <th>{{ "Parameters" | localize }}</th>
+                            <th>{{ "ClientIpAddress" | localize }}</th>
+                            <th>{{ "BrowserInfo" | localize }}</th>
+                            <th>{{ "Exception" | localize }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cuttedrow" *ngFor="
+                        let auditRecord of (auditRecords
+                        | paginate
+                            : {
+                                id: 'server',
+                                itemsPerPage: pageSize,
+                                currentPage: pageNumber,
+                                totalItems: totalItems })
+                        ">
+                            <td>{{auditRecord.tenantId}}</td>
+                            <td>{{auditRecord.userId}}</td>
+                            <td>{{auditRecord.serviceName}}</td>
+                            <td>{{auditRecord.methodName}}</td>
+                            <td>{{auditRecord.executionTime}}</td>
+                            <td>{{auditRecord.executionDuration}}</td>
+                            <td>{{auditRecord.parameters}}</td>
+                            <td>{{auditRecord.clientIpAddress}}</td>
+                            <td>{{auditRecord.browserInfo}}</td>
+                            <td>{{auditRecord.exception}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="abp-pagination-controls-wrapper" *ngIf="totalItems > pageSize">
+                    <abp-pagination-controls (pageChange)="getDataPage($event)" id="server">
+                    </abp-pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

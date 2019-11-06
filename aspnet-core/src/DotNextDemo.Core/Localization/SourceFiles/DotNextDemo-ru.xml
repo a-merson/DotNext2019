@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="ru">
+  <texts>
+    <text name="Audit" value="Аудит" />
+    <text name="AuditRecords" value="Журнал аудита" />
+    <text name="TenantId" value="Тенант" />
+    <text name="UserId" value="Пользователь" />
+    <text name="ServiceName" value="Сервис" />
+    <text name="MethodName" value="Метод" />
+    <text name="ExecutionTime" value="Время" />
+    <text name="ExecutionDuration" value="Продолжительность" />
+    <text name="Parameters" value="Параметры" />
+    <text name="ClientIpAddress" value="Адрес" />
+    <text name="BrowserInfo" value="BrowserInfo" />
+    <text name="Exception" value="Исключение" />
+  </texts>
+</localizationDictionary>
