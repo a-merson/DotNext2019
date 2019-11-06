@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Demo1/angular/TalkManagement.AngularUI.sln.DotSettings.user
+/Demo1/angular/package-lock.json

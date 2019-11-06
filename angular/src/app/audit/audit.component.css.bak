@@ -1,0 +1,12 @@
+.cuttedrow td {
+    /*max-width: 70px;
+    overflow: hidden;*/
+    /*word-wrap: break-word;*/
+    /*max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;*/
+}
+
+.body.table-responsive {
+    overflow: scroll
+}
