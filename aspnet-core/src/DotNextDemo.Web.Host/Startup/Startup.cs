@@ -16,6 +16,7 @@ using DotNextDemo.Configuration;
 using DotNextDemo.Identity;
 
 using Abp.AspNetCore.SignalR.Hubs;
+using Abp.PlugIns;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNextDemo.Web.Host.Startup
@@ -80,10 +81,14 @@ namespace DotNextDemo.Web.Host.Startup
             // Configure Abp and Dependency Injection
             return services.AddAbp<DotNextDemoWebHostModule>(
                 // Configure Log4Net logging
-                options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
-                    f => f.UseAbpLog4Net().WithConfig("log4net.config")
-                )
-            );
+                options =>
+                {
+                    options.IocManager.IocContainer.AddFacility<LoggingFacility>(
+                        f => f.UseAbpLog4Net().WithConfig("log4net.config")
+                    );
+
+                    options.PlugInSources.AddFolder(@"d:\DotNext2019\plugin\bin\Debug\netcoreapp2.2");
+                });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
